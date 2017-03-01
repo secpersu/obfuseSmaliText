@@ -1,3 +1,6 @@
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -6,9 +9,13 @@ import java.util.regex.Pattern;
  */
 public class test {
     public static void main(String[] args) {
-        System.out.println(qtfreet00.decString("LRoXAgpKW2ofFxQLFRExQAAcVgQRNhpNAhEA"));
-        String t = String.format(qtfreet00.decString("LRoXAkNfWzIZFFxAQQctQAAcVhEELEATGglPEiocDhMNTQcgDxEREVYAPB4GT1wDUi4LGgUWAhB4SxBUChkTK1NGAQ=="), "hello", "wolrd", "12");
-        System.out.println(t);
+
+
+        String s = "\",\"type\":1,\"offset\":";
+        System.out.println(qtfreet00.decode(qtfreet00.encode(s)));;
+        String s1 = StringEscapeUtils.unescapeJava(s);
+        System.out.println(qtfreet00.decode(qtfreet00.encode(s1)));
+
 
     }
 
