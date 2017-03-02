@@ -18,5 +18,5 @@ smali字符串混淆
 [下载](https://qtfreet.cn/com.coolapk.market_7_Mod.apk)
 
 #### 效果图
-![](http://qtfreet.oss-cn-shanghai.aliyuncs.com/pic1.png)
+![](https://qtfreet.cn/pic1.png)
 
