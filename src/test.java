@@ -12,7 +12,6 @@ public class test {
         System.out.println(qtfreet00.encode("AppConfig init end"));
 
         System.out.println(qtfreet00.decode("300416310A0B121813461B0B0C0051110816"));
-        ;
 
 
     }
