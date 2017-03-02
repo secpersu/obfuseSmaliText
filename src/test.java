@@ -9,12 +9,10 @@ import java.util.regex.Pattern;
  */
 public class test {
     public static void main(String[] args) {
+        System.out.println(qtfreet00.encode("AppConfig init end"));
 
-
-        String s = "\",\"type\":1,\"offset\":";
-        System.out.println(qtfreet00.decode(qtfreet00.encode(s)));;
-        String s1 = StringEscapeUtils.unescapeJava(s);
-        System.out.println(qtfreet00.decode(qtfreet00.encode(s1)));
+        System.out.println(qtfreet00.decode("300416310A0B121813461B0B0C0051110816"));
+        ;
 
 
     }

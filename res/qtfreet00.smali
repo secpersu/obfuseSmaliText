@@ -4,22 +4,12 @@
 
 
 # static fields
-.field private static hexString:Ljava/lang/String;
+.field private static final KEY:Ljava/lang/String; = "qtfreet"
+
+.field private static final hexString:Ljava/lang/String; = "0123456789ABCDEF"
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    .line 8
-    const-string v0, "0123456789ABCDEF"
-
-    sput-object v0, Lcom/qtfreet00;->hexString:Ljava/lang/String;
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -31,76 +21,119 @@
 .end method
 
 .method public static decode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
-    .param p0, "bytes"    # Ljava/lang/String;
+    .locals 8
+    .param p0, "str"    # Ljava/lang/String;
 
     .prologue
-    .line 29
-    new-instance v0, Ljava/io/ByteArrayOutputStream;
+    .line 14
+    new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v5
 
-    div-int/lit8 v2, v2, 0x2
+    div-int/lit8 v5, v5, 0x2
 
-    invoke-direct {v0, v2}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
+    invoke-direct {v1, v5}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
-    .line 31
-    .local v0, "baos":Ljava/io/ByteArrayOutputStream;
-    const/4 v1, 0x0
+    .line 16
+    .local v1, "baos":Ljava/io/ByteArrayOutputStream;
+    const/4 v2, 0x0
 
-    .local v1, "i":I
+    .local v2, "i":I
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v5
 
-    if-ge v1, v2, :cond_0
+    if-ge v2, v5, :cond_0
 
-    .line 32
-    sget-object v2, Lcom/qtfreet00;->hexString:Ljava/lang/String;
+    .line 17
+    const-string v5, "0123456789ABCDEF"
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v6
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v5, v6}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v2
+    move-result v5
 
-    shl-int/lit8 v2, v2, 0x4
+    shl-int/lit8 v5, v5, 0x4
 
-    sget-object v3, Lcom/qtfreet00;->hexString:Ljava/lang/String;
+    const-string v6, "0123456789ABCDEF"
 
-    add-int/lit8 v4, v1, 0x1
+    add-int/lit8 v7, v2, 0x1
 
-    invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v7}, Ljava/lang/String;->charAt(I)C
 
-    move-result v4
+    move-result v7
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v6, v7}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v3
+    move-result v6
 
-    or-int/2addr v2, v3
+    or-int/2addr v5, v6
 
-    invoke-virtual {v0, v2}, Ljava/io/ByteArrayOutputStream;->write(I)V
+    invoke-virtual {v1, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    .line 31
-    add-int/lit8 v1, v1, 0x2
+    .line 16
+    add-int/lit8 v2, v2, 0x2
 
     goto :goto_0
 
-    .line 33
+    .line 18
     :cond_0
-    new-instance v2, Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    move-result-object v0
 
-    move-result-object v3
+    .line 19
+    .local v0, "b":[B
+    array-length v4, v0
 
-    invoke-direct {v2, v3}, Ljava/lang/String;-><init>([B)V
+    .line 20
+    .local v4, "len":I
+    const-string v5, "qtfreet"
 
-    return-object v2
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    .line 21
+    .local v3, "keyLen":I
+    const/4 v2, 0x0
+
+    :goto_1
+    if-ge v2, v4, :cond_1
+
+    .line 22
+    aget-byte v5, v0, v2
+
+    const-string v6, "qtfreet"
+
+    rem-int v7, v2, v3
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->charAt(I)C
+
+    move-result v6
+
+    xor-int/2addr v5, v6
+
+    int-to-byte v5, v5
+
+    aput-byte v5, v0, v2
+
+    .line 21
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    .line 24
+    :cond_1
+    new-instance v5, Ljava/lang/String;
+
+    invoke-direct {v5, v0}, Ljava/lang/String;-><init>([B)V
+
+    return-object v5
 .end method

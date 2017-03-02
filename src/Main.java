@@ -13,7 +13,7 @@ public class Main {
 
     private static List<String> filelist = new ArrayList();
 
-    public static final String path = "C:\\Users\\qtfreet\\Desktop\\com.qtfreet.musicuu-2\\smali\\com\\qtfreet";
+    public static final String path = "C:\\Users\\qtfreet\\Desktop\\com.coolapk.market_7.4_1702202\\smali\\com\\coolapk\\market";
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         getFiles(path);
@@ -49,6 +49,7 @@ public class Main {
                         sb.append(str + "\n");
                         continue;
                     }
+                    //字符串转义
                     tmp = StringEscapeUtils.unescapeJava(tmp);
                     String register = m.group(1);
                     String enc = qtfreet00.encode(tmp);
