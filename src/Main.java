@@ -1,8 +1,10 @@
 import org.apache.commons.lang3.StringEscapeUtils;
 
+import javax.jws.soap.SOAPBinding;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,10 +15,13 @@ public class Main {
 
     private static List<String> filelist = new ArrayList();
 
-    public static final String path = "C:\\Users\\qtfreet\\Desktop\\com.coolapk.market_7.4_1702202\\smali\\com\\coolapk\\market";
-
     public static void main(String[] args) throws UnsupportedEncodingException {
-        getFiles(path);
+        System.out.println("请输入已反编译apk的路径：");
+        Scanner scanner = new Scanner(System.in);
+        String path = scanner.next();
+        String packagePath = getPackagePath(path);
+        String smaliPath = path + "\\smali\\" + packagePath;
+        getFiles(smaliPath);
         if (filelist == null) {
             System.out.println("未发现smali文件");
             return;
@@ -32,8 +37,63 @@ public class Main {
             System.out.println("当前是第 " + j + "个文件，还剩" + k + "个");
             FileTofindString(signalFile);
         }
+        inject(path + "\\smali\\com");
         System.out.println("任务完成");
+        System.out.println("直接重打包apk即可");
     }
+
+    private static void inject(String path) {
+        try {
+            File file = new File(path);
+            if (!file.exists() || !file.isDirectory()) {
+                file.mkdir();
+            }
+            InputStream resourceAsStream = Main.class.getResourceAsStream("/qtfreet00.smali");
+            InputStreamReader read = new InputStreamReader(resourceAsStream);
+            BufferedReader br = new BufferedReader(read);
+            String str = "";
+            StringBuilder sb = new StringBuilder();
+            while ((str = br.readLine()) != null) {
+                sb.append(str + "\n");
+            }
+            FileOutputStream fos = new FileOutputStream(new File(path + "\\qtfreet00.smali"));
+            fos.write(sb.toString().getBytes("UTF-8"));
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {
+
+        }
+
+    }
+
+    private static String getPackagePath(String path) {
+        try {
+            String AndroidManifestPath = path + "\\AndroidManifest.xml";
+            File file = new File(AndroidManifestPath);
+            if (!file.exists()) {
+                System.out.println("未在目录下发现AndroidManifest.xml文件");
+                System.exit(0);
+                return "";
+            }
+            String packgaName = "";
+            InputStreamReader read = new InputStreamReader(new FileInputStream(file), "UTF-8");
+            BufferedReader br = new BufferedReader(read);
+            String str = "";
+            while ((str = br.readLine()) != null) {
+                Matcher m = Pattern.compile("package=\"([\\w\\.]+)\"").matcher(str);
+                if (m.find()) {
+                    packgaName = m.group(1);
+                    break;
+                }
+
+            }
+            return packgaName.replace(".", "\\");
+        } catch (Exception e) {
+
+        }
+        return "";
+    }
+
 
     /**
      * 匹配文件
