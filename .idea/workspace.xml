@@ -6,15 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fb59e1c-8e8b-4e83-975f-c1c9665242eb" name="Default" comment="添加完整注释">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obfuseSmaliString.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/obfuseSmaliString_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/res/qtfreet00.smali" afterPath="$PROJECT_DIR$/src/qtfreet00.smali" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="5fb59e1c-8e8b-4e83-975f-c1c9665242eb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +57,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="252">
-                <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+              <first_editor relative-caret-position="168">
+                <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -721,7 +715,7 @@
       <workItem from="1488358213799" duration="4226000" />
       <workItem from="1488363108169" duration="114000" />
       <workItem from="1488422549912" duration="4027000" />
-      <workItem from="1488428001318" duration="3142000" />
+      <workItem from="1488428001318" duration="3294000" />
     </task>
     <task id="LOCAL-00001" summary="update,work correctly now">
       <created>1488361786302</created>
@@ -758,11 +752,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488427123722</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="添加自动化任务jar包">
+      <created>1488435287576</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1488435287576</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26533000" />
+    <option name="totallyTimeSpent" value="26685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="0" />
@@ -809,7 +810,8 @@
     <MESSAGE value="update,work correctly now" />
     <MESSAGE value="update" />
     <MESSAGE value="添加完整注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加完整注释" />
+    <MESSAGE value="添加自动化任务jar包" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加自动化任务jar包" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1087,8 +1089,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="252">
-            <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <first_editor relative-caret-position="168">
+            <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
             <folding />
           </first_editor>
           <second_editor />
